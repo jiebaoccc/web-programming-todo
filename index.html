@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="李昱坤的学术型个人简历">
+  <title>李昱坤｜个人简历</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="resume-container">
+    <header class="resume-header">
+      <div class="personal-info">
+        <p class="resume-label">个人简历</p>
+        <h1>李昱坤</h1>
+        <ul class="contact-list" aria-label="联系方式">
+          <li><span class="contact-key">电话</span>请填写</li>
+          <li><span class="contact-key">邮箱</span>请填写</li>
+          <li><span class="contact-key">政治面貌</span>请填写</li>
+        </ul>
+      </div>
+
+      <div class="photo-frame">
+        <span class="photo-placeholder" aria-hidden="true">证件照</span>
+        <img src="photo.jpg" alt="证件照">
+      </div>
+    </header>
+
+    <section class="resume-section" aria-labelledby="education-title">
+      <h2 class="section-title" id="education-title">教育背景</h2>
+      <div class="education-header">
+        <strong>深圳大学</strong>
+        <strong>计算机科学与技术（创新班，本科）</strong>
+        <strong>2023—2027</strong>
+      </div>
+      <ul class="resume-list">
+        <li>
+          <strong class="item-label">成绩排名：</strong>
+          GPA 4.06/4.5，专业排名 10/231；英语：CET-4 537，CET-6 522。
+        </li>
+        <li>
+          <strong class="item-label">核心课程：</strong>
+          算法分析与设计、数据结构、计算机系统、数据库系统、操作系统（均 A+），计算机网络、计算机图形学（均 A）。
+        </li>
+      </ul>
+    </section>
+
+    <section class="resume-section" aria-labelledby="research-title">
+      <h2 class="section-title" id="research-title">科研及项目经历</h2>
+
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-title">基于细胞分裂感知与类别增强对比学习的胚胎阶段分类方法</h3>
+          <p class="project-meta">MICCAI 2026（CCF-B），第一作者</p>
+        </div>
+        <ul class="resume-list">
+          <li>
+            <strong class="item-label">研究任务：</strong>
+            面向胚胎时序图像的发育阶段分类，针对阶段过渡模糊、时序一致性不足和阶段边界难以精确判别等问题，负责模型设计、算法实现、实验分析与论文撰写；论文已被 MICCAI 2026（医学图像人工智能领域顶会，CCF-B）接收。
+          </li>
+          <li>
+            <strong class="item-label">数据处理：</strong>
+            设计胚胎核心区域提取流程，结合相邻帧差分、边缘检测、形态学开闭运算和轮廓检测定位胚胎主体，并依据最大轮廓的圆心与半径进行自适应裁切，降低培养皿背景和边缘噪声干扰。
+          </li>
+          <li>
+            <strong class="item-label">模型设计：</strong>
+            构建细胞分裂感知模块，以相邻帧分裂概率辅助阶段判断；结合监督对比学习设计类别增强分类头，完成置信度重标定与类别一致性矫正；采用两阶段学习机制融合多阶帧对的全局变化与一阶帧对的局部边界信息。
+          </li>
+          <li>
+            <strong class="item-label">量化结果：</strong>
+            在人类胚胎任务上，模型准确率提升 <strong>3.60%</strong>、阶段转换准确率提升 <strong>2.99%</strong>；在小鼠胚胎任务上，两项指标分别提升 <strong>2.46%</strong> 和 <strong>17.86%</strong>。
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="resume-section" aria-labelledby="awards-title">
+      <h2 class="section-title" id="awards-title">个人荣誉</h2>
+      <ul class="award-list">
+        <li class="award-item">
+          <span>2025</span>
+          <strong>睿抗机器人开发者大赛</strong>
+          <span>国家三等奖</span>
+        </li>
+        <li class="award-item">
+          <span>深圳大学</span>
+          <strong>“学习之星”奖学金</strong>
+          <span>二等奖</span>
+        </li>
+        <li class="award-item">
+          <span>深圳大学</span>
+          <strong>“优秀学生干部”奖学金</strong>
+          <span>二等奖</span>
+        </li>
+        <li class="award-item">
+          <span>深圳大学</span>
+          <strong>“双创之星”奖学金</strong>
+          <span>三等奖</span>
+        </li>
+        <li class="award-item">
+          <span>深圳大学</span>
+          <strong>“公益之星”奖学金</strong>
+          <span>三等奖</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="resume-section" aria-labelledby="summary-title">
+      <h2 class="section-title" id="summary-title">个人总结</h2>
+      <ul class="resume-list">
+        <li>
+          <strong class="item-label">科研能力：</strong>
+          具备医学图像分析、时序建模、目标检测及噪声标签学习研究经验；以第一作者身份完成 MICCAI 2026（CCF-B）论文工作，具备从问题分析、模型设计到实验验证和论文撰写的完整科研能力。
+        </li>
+        <li>
+          <strong class="item-label">算法与工程：</strong>
+          熟悉深度学习模型训练、数据处理与实验分析流程，具备目标检测、对比学习、信息检索及人工智能系统开发经验，能够结合实际任务完成算法设计与系统实现。
+        </li>
+      </ul>
+    </section>
+
+    <!-- 第6周新增：Todo V2.0 基础版 -->
+    <section class="resume-section todo-section" aria-labelledby="todo-title">
+      <h2 class="section-title" id="todo-title">我的待办事项</h2>
+      <p class="todo-description">记录近期需要完成的任务（第6周：添加与显示）。</p>
+      <div class="todo-controls">
+        <label class="todo-label" for="todo-input">待办内容</label>
+        <input id="todo-input" type="text" placeholder="例如：完成第6周实验报告" maxlength="120">
+        <button id="add-btn" type="button">添加</button>
+      </div>
+      <p id="todo-feedback" class="todo-feedback" role="status" aria-live="polite"></p>
+      <ul id="todo-list" class="todo-list" aria-label="待办事项列表"></ul>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
