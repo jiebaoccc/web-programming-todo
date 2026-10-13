@@ -391,3 +391,426 @@ body {
 .todo-list { list-style: none; padding: 0; margin: .375rem 0 0; display: grid; gap: .5rem; }
 .todo-list li { padding: .55rem .75rem; background: #f6f2f8; border-left: 3px solid var(--primary); overflow-wrap: anywhere; }
 @media print { .todo-controls, .todo-feedback { display: none; } }
+:root {
+  --primary: #5d3a74;
+  --primary-dark: #452657;
+  --text: #242128;
+  --muted: #68616c;
+  --line: #d8ccdf;
+  --paper: #ffffff;
+  --page-bg: #ececef;
+  --space-1: 0.375rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+  line-height: 1.68;
+}
+
+/* =========================
+   默认：移动端优先
+   ========================= */
+.resume-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1.125rem 2rem;
+  overflow-wrap: anywhere;
+  background: var(--paper);
+}
+
+/* 顶部个人信息：使用 Grid 组织文字与照片 */
+.resume-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 3px solid var(--primary);
+}
+
+.personal-info {
+  min-width: 0;
+}
+
+.resume-label {
+  margin: 0 0 0.125rem;
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.personal-info h1 {
+  margin: 0 0 0.75rem;
+  color: var(--primary-dark);
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  line-height: 1.18;
+  letter-spacing: 0.08em;
+}
+
+.contact-list {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  color: #454048;
+  list-style: none;
+}
+
+.contact-list li {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.contact-key {
+  margin-right: 0.45em;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.photo-frame {
+  position: relative;
+  width: clamp(4.75rem, 20vw, 5.5rem);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid #cfc3d4;
+  border-radius: 4px;
+  background: #f2eef4;
+}
+
+.photo-frame img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #918398;
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+}
+
+.resume-section {
+  margin-top: 1.5rem;
+}
+
+.section-title {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0 0 0.875rem;
+  color: var(--primary);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+}
+
+.section-title::after {
+  height: 1px;
+  background: var(--line);
+  content: "";
+}
+
+/* 移动端先单列，避免较窄视口下三列相互挤压 */
+.education-header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-header strong:last-child {
+  color: var(--primary);
+}
+
+.resume-list,
+.award-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resume-list li {
+  position: relative;
+  margin-top: 0.5rem;
+  padding-left: 1.0625rem;
+  text-align: left;
+}
+
+.resume-list li::before,
+.award-item::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0.125rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  background: var(--primary);
+  content: "";
+}
+
+.item-label {
+  color: #302735;
+}
+
+.project {
+  break-inside: avoid;
+}
+
+.project + .project {
+  margin-top: 1.375rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed #ded6e2;
+}
+
+.project-header {
+  display: grid;
+  gap: 0.125rem;
+  margin-bottom: 0.375rem;
+}
+
+.project-title,
+.project-meta {
+  min-width: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.project-title {
+  color: #27212b;
+}
+
+.project-meta {
+  color: var(--primary);
+}
+
+.award-list {
+  display: grid;
+  gap: 0.375rem;
+}
+
+.award-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(5rem, auto) minmax(0, 1fr);
+  gap: 0.125rem 0.75rem;
+  padding-left: 1.0625rem;
+}
+
+.award-item span:first-child {
+  color: var(--muted);
+}
+
+.award-item span:last-child {
+  grid-column: 2;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* =========================
+   内容断点 1：约 600px 后，联系方式和荣誉信息有足够横向空间
+   ========================= */
+@media (min-width: 600px) {
+  .resume-container {
+    width: min(100% - 2rem, 56.25rem);
+    margin: 1.25rem auto;
+    padding: 2rem 2.25rem 2.5rem;
+    box-shadow: 0 12px 38px rgba(42, 32, 48, 0.11);
+  }
+
+  .resume-header {
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .contact-list {
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    gap: 0.375rem 1.25rem;
+  }
+
+  .photo-frame {
+    width: 6rem;
+  }
+
+  .award-item {
+    grid-template-columns: minmax(5rem, auto) minmax(0, 1fr) minmax(5.5rem, auto);
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .award-item span:last-child {
+    grid-column: auto;
+    text-align: right;
+  }
+}
+
+/* =========================
+   内容断点 2：约 800px 后，教育和项目标题可稳定并排
+   ========================= */
+@media (min-width: 800px) {
+  .resume-container {
+    margin: 2.375rem auto;
+    padding: 3.25rem 3.875rem 3.5rem;
+  }
+
+  .resume-header {
+    gap: 2.25rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .contact-list {
+    grid-template-columns: repeat(3, minmax(0, max-content));
+    gap: 0.4375rem 1.5rem;
+  }
+
+  .photo-frame {
+    width: 7.25rem;
+  }
+
+  .education-header {
+    grid-template-columns: minmax(6.25rem, 0.85fr) minmax(0, 1.8fr) auto;
+    align-items: baseline;
+    gap: 1.125rem;
+  }
+
+  .education-header strong:last-child {
+    color: inherit;
+    text-align: right;
+  }
+
+  .project-header {
+    grid-template-columns: minmax(0, 2fr) minmax(10rem, 1fr);
+    align-items: start;
+    gap: 1.5rem;
+  }
+
+  .project-meta {
+    text-align: right;
+  }
+
+  .resume-list li {
+    text-align: justify;
+  }
+}
+
+/* 打印 */
+@page {
+  size: A4;
+  margin: 12mm 13mm;
+}
+
+@media print {
+  html {
+    font-size: 10pt;
+  }
+
+  body {
+    background: #fff;
+    line-height: 1.5;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .resume-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .resume-header {
+    padding-bottom: 13px;
+  }
+
+  .resume-section {
+    margin-top: 15px;
+  }
+
+  .section-title {
+    margin-bottom: 8px;
+    font-size: 14pt;
+  }
+
+  .photo-frame {
+    width: 26mm;
+  }
+
+  .project,
+  .education-header,
+  .award-item,
+  .resume-list li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* 第6周新增：沿用简历主色及响应式排版的 Todo 模块 */
+.todo-description { color: var(--muted); margin: 0 0 .75rem; }
+.todo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .625rem; }
+.todo-label { font-weight: 700; color: var(--primary-dark); }
+#todo-input { flex: 1 1 13rem; min-width: 0; padding: .625rem .75rem; border: 1px solid var(--line); border-radius: 5px; font: inherit; }
+#todo-input:focus-visible, #add-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+#add-btn { padding: .625rem 1.125rem; border: none; border-radius: 5px; color: #fff; background: var(--primary); font: inherit; font-weight: 700; cursor: pointer; }
+#add-btn:hover { background: var(--primary-dark); }
+.todo-feedback { min-height: 1.5em; margin: .375rem 0; color: var(--primary-dark); font-size: .9rem; }
+.todo-list { list-style: none; padding: 0; margin: .375rem 0 0; display: grid; gap: .5rem; }
+.todo-list li { padding: .55rem .75rem; background: #f6f2f8; border-left: 3px solid var(--primary); overflow-wrap: anywhere; }
+@media print { .todo-controls, .todo-feedback { display: none; } }
+
+
+/* 第7周：Todo 完成状态与删除按钮 */
+.todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.todo-list li.done {
+  color: #777;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.todo-list li button {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background: #a64b65;
+  cursor: pointer;
+}
+
+.todo-list li button:hover {
+  background: #80354d;
+}
