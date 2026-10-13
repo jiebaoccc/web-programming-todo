@@ -102,6 +102,16 @@ function removeTodo(id) {
   render();
 }
 
+/**
+ * 清除所有已完成的待办事项
+ * 使用 filter 生成新数组，不修改原数组
+ */
+function clearCompleted() {
+  todos = todos.filter(t => !t.completed);
+  save();
+  render();
+}
+
 // 切换完成状态：map + 对象展开
 function toggleTodo(id) {
   todos = todos.map(t =>
