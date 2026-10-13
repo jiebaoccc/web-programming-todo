@@ -814,3 +814,33 @@ body {
 .todo-list li button:hover {
   background: #80354d;
 }
+
+
+/* 第7周：Todo 状态筛选 */
+.todo-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.todo-filters button {
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.todo-filters button.active {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.todo-filters button:hover {
+  border-color: var(--primary);
+}
+

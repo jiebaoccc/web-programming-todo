@@ -129,6 +129,11 @@
         <button id="add-btn" type="button">添加</button>
       </div>
       <p id="todo-feedback" class="todo-feedback" role="status" aria-live="polite"></p>
+      <div class="todo-filters" aria-label="待办事项筛选">
+        <button type="button" data-filter="all" class="active">全部</button>
+        <button type="button" data-filter="active">未完成</button>
+        <button type="button" data-filter="done">已完成</button>
+      </div>
       <ul id="todo-list" class="todo-list" aria-label="待办事项列表"></ul>
     </section>
   </main>
