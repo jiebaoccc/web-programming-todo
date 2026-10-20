@@ -47,17 +47,11 @@ function render() {
       li.classList.add('done');
     }
 
-    li.addEventListener('click', () => toggleTodo(t.id));
-
     const delBtn = document.createElement('button');
     delBtn.type = 'button';
     delBtn.textContent = '×';
     delBtn.setAttribute('aria-label', '删除待办：' + t.text);
-
-    delBtn.addEventListener('click', e => {
-      e.stopPropagation();
-      removeTodo(t.id);
-    });
+    delBtn.dataset.action = 'delete';
 
     li.appendChild(delBtn);
     list.appendChild(li);
@@ -138,6 +132,24 @@ if (!input || !button || !list || !feedback) {
 } else {
   button.addEventListener('click', () => {
     addTodo(input.value);
+  });
+
+  // 第8周：在稳定的父容器上统一处理任务点击
+  list.addEventListener('click', (e) => {
+    if (!(e.target instanceof Element)) return;
+    const item = e.target.closest('li');
+    if (!item || !list.contains(item)) return;
+    const rawId = item.dataset.id;
+    if (!rawId) return;
+    const id = Number(rawId); // 第7周的任务 id 由 Date.now() 生成，为数字
+    if (!Number.isSafeInteger(id)) return;
+
+    const delBtn = e.target.closest('[data-action="delete"]');
+    if (delBtn && item.contains(delBtn)) {
+      removeTodo(id);
+      return; // 删除后不再切换状态
+    }
+    toggleTodo(id);
   });
 
   // 绑定筛选按钮事件
