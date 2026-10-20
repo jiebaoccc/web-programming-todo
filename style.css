@@ -844,3 +844,32 @@ body {
   border-color: var(--primary);
 }
 
+
+/* 第8周：Todo 行内编辑样式 */
+.todo-edit-input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  font: inherit;
+  background: #fff;
+}
+
+.todo-edit-input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+/* 编辑状态下保持输入内容清晰 */
+.todo-list li.done .todo-edit-input {
+  color: var(--text);
+  text-decoration: none;
+}
+
+
+/* 第8周：编辑按钮靠右，与删除按钮相邻 */
+.todo-list li [data-action="edit"] {
+  margin-left: auto;
+  margin-right: 8px;
+}
