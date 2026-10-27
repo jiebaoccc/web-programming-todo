@@ -1,4 +1,3 @@
-// AI 测试审查后的修补参考（任务 3），不是手写测试任务 2 的成果。
 import { describe, expect, it } from 'vitest';
 import { addTodo, parseTodoId, parseTodos, toggleTodo, type Todo } from '../src/todo.js';
 

@@ -1,4 +1,3 @@
-// 示例：AI 第一版测试（特意保留待审查的无效断言，不应视为充分测试）。
 import { describe, expect, it } from 'vitest';
 import { addTodo, toggleTodo, type Todo } from '../src/todo.js';
 

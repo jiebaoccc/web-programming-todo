@@ -1,4 +1,4 @@
-// 任务 2：addTodo 与 toggleTodo 基础单元测试（AI 辅助编写）。
+
 import { describe, expect, it } from 'vitest';
 import { addTodo, toggleTodo, type Todo } from '../src/todo.js';
 
