@@ -19,6 +19,12 @@ describe('addTodo 添加待办', () => {
     expect(initial).toHaveLength(1);
   });
 
+  it('空字符串：拒绝添加', () => {
+    const result = addTodo([], '', 103);
+    expect(result.added).toBe(false);
+    expect(result.todos.length).toBe(0);
+  });
+
   it('重复 ID：拒绝添加，原任务未被覆盖', () => {
     const initial: Todo[] = [{ id: 1, text: '已有事项', completed: false }];
     const result = addTodo(initial, '新事项', 1);
