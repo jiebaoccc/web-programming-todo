@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 680px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+input {
+  padding: 8px;
+}
+
+button {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+li {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+li button {
+  float: right;
+}
+
+.done {
+  color: #888;
+  text-decoration: line-through;
+}
+
+#todo-feedback {
+  color: #c0392b;
+}

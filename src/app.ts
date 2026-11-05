@@ -1,4 +1,12 @@
-import { addTodo, nextTodoId, parseTodoId, parseTodos, removeTodo, toggleTodo, type Todo } from './todo.js';
+import {
+  addTodo,
+  nextTodoId,
+  parseTodoId,
+  parseTodos,
+  removeTodo,
+  toggleTodo,
+  type Todo,
+} from './todo.js';
 
 const input = document.querySelector<HTMLInputElement>('#todo-input');
 const button = document.querySelector<HTMLButtonElement>('#add-btn');
@@ -30,7 +38,7 @@ function startTodoApp(
 
   function render(): void {
     todoList.replaceChildren();
-    todos.forEach(t => {
+    todos.forEach((t) => {
       const li = document.createElement('li');
       li.textContent = t.text;
       li.dataset.id = String(t.id);
@@ -60,7 +68,7 @@ function startTodoApp(
   });
 
   // 事件委托：统一从 dataset.id 读取字符串并校验后转为 number。
-  todoList.addEventListener('click', event => {
+  todoList.addEventListener('click', (event) => {
     const target = event.target;
     if (!(target instanceof Element)) return;
     const li = target.closest('li');
