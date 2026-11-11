@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   max-width: 680px;
@@ -5,27 +6,45 @@ body {
   padding: 0 20px;
 }
 
+form {
+  display: flex;
+  gap: 8px;
+}
+
 input {
   padding: 8px;
+  flex: 1;
+  min-width: 0;
 }
 
 button {
-  margin-left: 8px;
+  padding: 8px;
   cursor: pointer;
+}
+
+#todo-list {
+  padding-left: 20px;
 }
 
 li {
   padding: 8px 0;
-  cursor: pointer;
 }
 
-li button {
-  float: right;
+.todo-text {
+  background: none;
+  border: none;
+  text-align: left;
+  font: inherit;
+  padding: 0;
 }
 
-.done {
+.done .todo-text {
   color: #888;
   text-decoration: line-through;
+}
+
+.delete-btn {
+  float: right;
 }
 
 #todo-feedback {
