@@ -1,4 +1,3 @@
-
 import { useState, type FormEvent } from 'react';
 
 interface TodoFormProps {
@@ -23,7 +22,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
       <input
         type="text"
         value={text}
-        onChange={event => setText(event.target.value)}
+        onChange={(event) => setText(event.target.value)}
         placeholder="输入待办事项"
         maxLength={120}
       />

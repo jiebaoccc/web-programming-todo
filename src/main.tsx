@@ -1,5 +1,5 @@
-
 import { createRoot } from 'react-dom/client';
+import { ThemeProvider } from './ThemeContext';
 import TodoApp from './components/TodoApp';
 import './style.css';
 
@@ -9,4 +9,8 @@ if (!root) {
   throw new Error('找不到 React 根节点');
 }
 
-createRoot(root).render(<TodoApp />);
+createRoot(root).render(
+  <ThemeProvider>
+    <TodoApp />
+  </ThemeProvider>
+);

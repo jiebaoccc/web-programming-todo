@@ -1,13 +1,6 @@
-
 import { useEffect, useState } from 'react';
-import {
-  addTodo,
-  nextTodoId,
-  parseTodos,
-  removeTodo,
-  toggleTodo,
-  type Todo,
-} from '../todo';
+import { addTodo, nextTodoId, parseTodos, removeTodo, toggleTodo, type Todo } from '../todo';
+import ThemeToggle from './ThemeToggle';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
@@ -25,7 +18,6 @@ export default function TodoApp() {
   const [todos, setTodos] = useState<Todo[]>(loadTodos);
   const [feedback, setFeedback] = useState('');
 
-  // 当 todos 改变时，保存到本地存储
   useEffect(() => {
     try {
       localStorage.setItem(KEY, JSON.stringify(todos));
@@ -43,36 +35,37 @@ export default function TodoApp() {
       return false;
     }
 
-    setTodos(prev => {
+    setTodos((prev) => {
       const newId = nextTodoId(prev, Date.now());
       return addTodo(prev, text, newId).todos;
     });
+
     setFeedback('');
     return true;
   }
 
   function handleToggle(id: number) {
-    setTodos(prev => toggleTodo(prev, id));
+    setTodos((prev) => toggleTodo(prev, id));
   }
 
   function handleDelete(id: number) {
-    setTodos(prev => removeTodo(prev, id));
+    setTodos((prev) => removeTodo(prev, id));
   }
 
   return (
     <main>
-      <h1>Todo V4.0</h1>
+      <div className="app-header">
+        <h1>Todo V4.0</h1>
+        <ThemeToggle />
+      </div>
+
       <TodoForm onAdd={handleAdd} />
 
       <p id="todo-feedback" role="status">
         {feedback}
       </p>
 
-      <TodoList
-        todos={todos}
-        onToggle={handleToggle}
-        onDelete={handleDelete}
-      />
+      <TodoList todos={todos} onToggle={handleToggle} onDelete={handleDelete} />
     </main>
   );
 }
